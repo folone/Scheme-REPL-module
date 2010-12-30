@@ -12,8 +12,10 @@ public class SchemeREPL extends Service {
 
 	private final Evaluator.Stub evaluator = new Evaluator.Stub() {
 		
+	    private JScheme scheme = new JScheme();
+	    
 		public String evaluate(String script) throws RemoteException {
-			JScheme scheme = new JScheme();
+			
 			String result = "Something went wrong.";
 			try {
 				result = scheme.eval(script).toString();
